@@ -1,4 +1,4 @@
-//This program sets a budget by accepting budget starting and ending year, price of each pencil, estimated inflation rate and finally display the estimated budget set
+
 
 #include<iostream>
 #include<iomanip>
@@ -8,7 +8,7 @@ using namespace std;
 
 int main() {
 
-    //variable declaration to accept the value of each pencil price,rate of inflation that increase the price of the pencil
+    //variable declaration to accept the value of each pencil price,rate of inflation that increase the price of the pencil 
 
     float each_item_price, starting_inflation_rate, total_price, rateof_inflation;
 
@@ -48,8 +48,10 @@ ask1:
         budget_year = budget_endyear - sarting_year; //the difference between the starting and ending budget year
 
         float estimated_price[budget_year]; //array that stores the estimated price of each year
+        float *p_price;
+        p_price=&estimated_price[0];
 
-        for (int i = 0; i <= budget_year; i++) {
+        for (int i = 0; i < budget_year; i++) {
             estimated_price[i] = total_price + (total_price * rateof_inflation);//calculate and store the estimated price of the 'i'th year
             rateof_inflation *= 2;
         }
@@ -60,8 +62,8 @@ ask1:
 
         system("cls");
     ask:
-        cout << "Which year's pencil price budget do you want to see?\n";
-        cout << "\t\t1. To see all pencil price\n\t\t2. Enter year\n\t\t3. exit " << endl;
+        cout << "Which year's pencil price do you want to see?\n";
+        cout << "\t\t1. To see all pencil price\n\t\t2.Enter year\n\t\t3.exit " << endl;
         cin >> choice;
         if (choice != 1 && choice != 2 && choice != 3) {
             cout << "INVALID INPUT PLEASE TRY AGAIN!!" << endl;
@@ -71,9 +73,9 @@ ask1:
 
         if (choice == 1) {
             cout << "YEAR  " << setw(15) << "  NUMBER OF PENCIL  " << setw(15) << "  INFLATION RATE  " << setw(15) << " PRICE OF EACH PENCIL(ETB) " << setw(15) << " ESTIMATED PRICE(ETB) " << endl;
-            for (int i = 0; i <= budget_year; i++) {
+            for (int i = 0; i < budget_year; i++) {
 
-                cout << sarting_year << setw(15) << numberof_pencile << setw(15) << rateof_inflation << setw(20) << each_item_price << setw(30) << estimated_price[i] << endl;
+                cout << sarting_year << setw(15) << numberof_pencile << setw(15) << rateof_inflation << setw(20) << each_item_price << setw(30) << *(p_price+i) << endl;
                 sarting_year++;
                 each_item_price += each_item_price * rateof_inflation;
                 rateof_inflation *= 2;
@@ -86,20 +88,19 @@ ask1:
             cout << "Please Enter year from " << sarting_year << " to " << budget_endyear << " as you want to see the budget?" << endl;
             cin >> choiseYear;
 
-            int checkYear = 0;
-            checkYear = sarting_year;
-            rateof_inflation = starting_inflation_rate;
+                   int checkYear=0;
+                   checkYear = sarting_year;
+                   rateof_inflation = starting_inflation_rate;
 
-            for (int i = 0; i <= budget_year; i++) {
-
-
+            for (int i = 0; i < budget_year; i++) {
+                
+               
                 if (choiseYear == checkYear) {
-
+                    
                     cout << "YEAR  " << setw(15) << "  NUMBER OF PENCIL  " << setw(15) << "  INFLATION RATE  " << setw(15) << " PRICE OF EACH PENCIL(ETB) " << setw(15) << " ESTIMATED PRICE(ETB) " << endl;
-                    cout << checkYear << setw(15) << numberof_pencile << setw(15) << rateof_inflation << setw(20) << each_item_price << setw(30) << estimated_price[i] << endl;
+                    cout << checkYear << setw(15) << numberof_pencile << setw(15) << rateof_inflation << setw(20) << each_item_price << setw(30) << *(p_price+i) << endl;
                     break;
                 }
-                each_item_price += each_item_price * rateof_inflation;
                 rateof_inflation *= 2;
                 checkYear++;
             }
