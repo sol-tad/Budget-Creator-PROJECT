@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1680734644 source:c:\users\sola.desktop-5rifgps\desktop\group project\group 5 project\main.cpp
+	<iostream>
+	<iomanip>
+	<cstdlib>
+
