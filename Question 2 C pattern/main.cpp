@@ -1,3 +1,5 @@
+//This program makes a pattern 
+
 #include <iostream>
 #include<iomanip>
 
@@ -6,6 +8,7 @@ using namespace std;
 int main()
 {
     int i,c=35,n;
+    
     for(int i=0;i<=9;i++){
         for(int j=i;j>=0;j--){
             cout<<j<<" ";
@@ -55,11 +58,6 @@ int main()
         }
         cout<<endl;
     }
-
-
-
-
-
 
 
 return 0;
