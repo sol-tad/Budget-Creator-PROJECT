@@ -1,4 +1,4 @@
-
+//This program sets a budget by accepting budget starting and ending year, price of each pencil, estimated inflation rate and finally display the estimated budget set
 
 #include<iostream>
 #include<iomanip>
