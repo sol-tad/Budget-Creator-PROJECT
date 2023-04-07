@@ -1,6 +1,6 @@
 /*  
 
-In this project I trying to cover things that we have leared like are for loop , decision using if statement
+In this project we trying to cover things that we have leared like are for loop , decision using if statement
 and also we use while statement for input validation and one of the jumping statement also used to make the code
 user friendly.
 
