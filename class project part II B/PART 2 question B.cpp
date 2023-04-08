@@ -1,9 +1,7 @@
 /*  
-
-In this project we trying to cover things that we have leared like are for loop , decision using if statement
-and also we use while statement for input validation and one of the jumping statement also used to make the code
-user friendly.
-
+In this project we trying to cover things that we have leared like for loop , decision using both if and switch
+statement also we use while loop and switch statement for input validation and one of the jumping statement also
+used to make the codeuser friendly.
 */
 
 #include <iostream>
@@ -11,15 +9,16 @@ using namespace std;
 
 int main() {
      
+       enter_again:  // label
+      cout<<"Enter a number n greater than 0 or -1 to quit the program : "; 
       
-      cout<<"enter the number n and -1 to quit the program"; 
-      
-      enter_again:   // label
       int n; 
       cin>>n;   
+      char input_validation;
       
+      cout<<"\n";
        
-     if( n != 0){
+     
        for( int i {n}; i >= 0 ; i-- ){
              if (i < n ){
               for (int x = n ; x > i ; x--){   // for spacing since it start at the second row we use i<n
@@ -56,14 +55,36 @@ int main() {
            cout<<endl;      
  
             }
+      
+
+       if ( n < 0){
+     while( n!= -1){
+        cout<<"you entered "<< n << "\n";
+        goto enter_again;
      }
+       }  
+
+          cout<<"\n\n";
+      
+        if ( n != -1){
+       cout<<" *********** DO YOU WANT TO TRY IT AGAIN (Y)**********";
+          cin>>input_validation;
+  
+          switch( input_validation){
+             case 'Y' :
+             case 'y':
+                 goto enter_again;
+                  break;
+             default :
+               break;
+          } 
+          
+        }
+
+          cout<< " TERMINATED ";
+       
+     
      
            return 0;  
            
  }
-       
-       
-       
-        
-
-
