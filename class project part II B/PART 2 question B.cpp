@@ -4,6 +4,7 @@ statement also we use while loop and switch statement for input validation and o
 used to make the codeuser friendly.
 */
 
+
 #include <iostream>
 using namespace std;
 
@@ -18,7 +19,10 @@ int main() {
       
       cout<<"\n";
        
-     
+          if ( n == 0)
+              goto validation_for_0;
+              
+            
        for( int i {n}; i >= 0 ; i-- ){
              if (i < n ){
               for (int x = n ; x > i ; x--){   // for spacing since it start at the second row we use i<n
@@ -56,8 +60,8 @@ int main() {
  
             }
       
-
-       if ( n < 0){
+     validation_for_0:
+       if ( n <= 0){
      while( n!= -1){
         cout<<"you entered "<< n << "\n";
         goto enter_again;
@@ -82,6 +86,11 @@ int main() {
         }
 
           cout<< " TERMINATED ";
+        
+        
+         
+
+        
        
      
      
