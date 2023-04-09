@@ -1,4 +1,8 @@
-
+/* 
+This program sets a budget by accepting the budget starting year,budget ending year,numberof pencli uses,inflation rate,
+and each pencile price at budget starting year.And finally display all the estimated price of pencil from budget starting year to budget 
+ending year
+*/
 
 #include<iostream>
 #include<iomanip>
@@ -52,7 +56,7 @@ ask1:
         p_price=&estimated_price[0];
 
         for (int i = 0; i < budget_year; i++) {
-            estimated_price[i] = total_price + (total_price * rateof_inflation);//calculate and store the estimated price of the 'i'th year
+            estimated_price[i] = total_price +  rateof_inflation;//calculate and store the estimated price of the 'i'th year
             rateof_inflation *= 2;
         }
 
@@ -77,7 +81,7 @@ ask1:
 
                 cout << sarting_year << setw(15) << numberof_pencile << setw(15) << rateof_inflation << setw(20) << each_item_price << setw(30) << *(p_price+i) << endl;
                 sarting_year++;
-                each_item_price += each_item_price * rateof_inflation;
+                each_item_price +=  rateof_inflation;
                 rateof_inflation *= 2;
             }
         }
