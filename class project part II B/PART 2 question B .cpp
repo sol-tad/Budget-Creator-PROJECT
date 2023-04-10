@@ -1,3 +1,4 @@
+
 /*  
 In this project we trying to cover things that we have leared like for loop , decision using both if and switch
 statement also we use while loop and switch statement for input validation and one of the jumping statement also
@@ -6,17 +7,27 @@ used to make the codeuser friendly.
 
 
 #include <iostream>
+
+
 using namespace std;
 
 int main() {
      
-       enter_again:  // label
-      cout<<"Enter a number n greater than 0 or -1 to quit the program : "; 
+      enter_again:  //label
+                          
+      cout<<"Enter a number n greater than 0 or -1 to quit the program : ";
       
       int n; 
       cin>>n;   
-      char input_validation;
       
+      
+        if( cin.fail()){
+            cin.clear();
+            cin.ignore();
+            cout<<"Invalid input, \n";
+            goto enter_again;
+        }
+      char input_validation;
       cout<<"\n";
        
           if ( n == 0)
