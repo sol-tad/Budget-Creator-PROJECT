@@ -1,6 +1,5 @@
 /* In this project we tried to use the topics that we have learned in this course like loop, if statement 
 switch and also jumping statement used.
-
 */
 #include <iostream>
 using namespace std;
@@ -15,8 +14,17 @@ int main() {
     cin>>n;
     char input_validation;
     
+    if( cin.fail()){
+            cin.clear();
+            cin.ignore();
+            cout<<"Invalid input, \n";
+           goto ask;
+         }
+    
      if (n ==0 || n < -1 )
          goto for_zero;
+         
+         
     
     
     if( n != -1){
