@@ -58,6 +58,7 @@ ask3:
 
         cout << "\t\tPlease Enter budget endyear\n";
         cin >> budget_endyear;
+
         if(budget_endyear<=sarting_year){
             cout<<"The year is less than starting year!!Try again"<<endl;
         goto ask3;
@@ -74,9 +75,10 @@ ask3:
             goto ask3 ;
                 }
 
+ ask4:
         cout << "\t\t Please Enter each pencil price in the starting year(ETB)\n";
         cin >> each_item_price;
-        ask4:
+
             if(each_item_price<0){
                 cout<<"Invalid year! Try again"<<endl;
         goto ask4;
@@ -96,7 +98,7 @@ ask5:
            if(cin.fail()){
             cin.clear();
             cin.ignore();
-            cout<<"Invalid year! Try again"<<endl;
+            cout<<"Invalid inflation rate! Try again"<<endl;
             goto ask5 ;
                 }
 
@@ -105,6 +107,7 @@ ask5:
 ask6:
         cout << "\t\tPlease Enter quantity of pencil \n";
         cin >> numberof_pencile;
+
         if(numberof_pencile<=0){
             cout<<"Invalid input: Try again"<<endl;
             goto ask6;
@@ -117,6 +120,7 @@ ask6:
             goto ask6 ;
                 }
 
+
         rateof_inflation = starting_inflation_rate;
 
         total_price = numberof_pencile * each_item_price; //total price of pencil for one year
@@ -128,8 +132,8 @@ ask6:
         p_price=&estimated_price[0];
 
         for (int i = 0; i < budget_year; i++) {
-            estimated_price[i] = total_price +  rateof_inflation;//calculate and store the estimated price of the 'i'th year
-            rateof_inflation *= 2;
+            estimated_price[i] = total_price + total_price* rateof_inflation;//calculate and store the estimated price of the 'i'th year
+           total_price+=  total_price* rateof_inflation;
         }
 
         rateof_inflation = starting_inflation_rate;
@@ -164,8 +168,8 @@ ask6:
 
                 cout << sarting_year << setw(15) << numberof_pencile << setw(15) << rateof_inflation << setw(20) << each_item_price << setw(30) << *(p_price+i) << endl;
                 sarting_year++;
-                each_item_price +=  rateof_inflation;
-                rateof_inflation *= 2;
+                each_item_price = each_item_price+each_item_price* rateof_inflation;
+
             }
         }
         else if (choice == 2) {
@@ -201,7 +205,7 @@ ask8:
                     cout << checkYear << setw(15) << numberof_pencile << setw(15) << rateof_inflation << setw(20) << each_item_price << setw(30) << *(p_price+i) << endl;
                     break;
                 }
-                rateof_inflation *= 2;
+                 each_item_price += each_item_price+each_item_price* rateof_inflation;
                 checkYear++;
             }
 
